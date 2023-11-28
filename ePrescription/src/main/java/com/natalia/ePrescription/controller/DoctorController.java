@@ -25,10 +25,12 @@ public class DoctorController {
     //@Qualifier("doctorServiceImpl2")
     DoctorService doctorService;
 
+    // Constructor level Dependency Injection
     /*public DoctorController(@Autowired DoctorService doctorService) {
         this.doctorService = doctorService;
     }*/
 
+    // Setter level Dependency Injection
     /*@Autowired
     public void setDoctorService( DoctorService doctorService) {
         this.doctorService = doctorService;
@@ -47,8 +49,6 @@ public class DoctorController {
         if(result.hasErrors()) {
             return "doctorLogin";
         }
-
-
         try {
             Doctor authDoctor = doctorService.login(doctorLoginDto.getEmail(), doctorLoginDto.getPassword());
             return "redirect:/allPatients";
@@ -56,17 +56,7 @@ public class DoctorController {
             model.addAttribute("notFound", true);
         }
         return "doctorLogin";
-
-
     }
-
-   /* @GetMapping("/register")
-    public ModelAndView register() {
-        ModelAndView mav = new ModelAndView("registration");
-        mav.addObject("doctor", new Doctor());
-
-        return mav;
-    }*/
 
     @GetMapping("/register")
     public ModelAndView register() {
@@ -75,12 +65,6 @@ public class DoctorController {
 
         return mav;
     }
-
-    /*@PostMapping("/register")
-    public String register(Doctor doctor) {
-        Doctor newDoctor = doctorService.save(doctor);
-        return "redirect:/login";
-    }*/
 
     @PostMapping("/register")
     public String register(@Valid @ModelAttribute("doctorRegister") DoctorRegisterDTO doctorRegisterDTO, BindingResult result, Model model) {
