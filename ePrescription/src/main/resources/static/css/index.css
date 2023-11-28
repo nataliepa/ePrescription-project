@@ -55,8 +55,8 @@
 }
 
 #register-img {
-    max-width: 70px;
-    max-height: 70px;
+    max-width: 65px;
+    max-height: 65px;
 }
 
 /* Small devices (tablets, 768px and up) */
@@ -72,8 +72,8 @@
     }
 
     #register-img {
-        max-width: 100px;
-        max-height: 100px;
+        max-width: 90px;
+        max-height: 90px;
     }
 }
 
