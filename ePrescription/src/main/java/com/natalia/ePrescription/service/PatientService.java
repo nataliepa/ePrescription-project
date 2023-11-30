@@ -11,4 +11,6 @@ public interface PatientService {
     void deletePatientById(Long patientId);
     Patient updatePatient(Patient patient);
     void deletePatient(Patient patient);
+
+    List<Patient> findPatientByAmka(String amka);
 }

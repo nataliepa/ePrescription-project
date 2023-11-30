@@ -1,0 +1,64 @@
+.main-body-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-top: 50px;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.bi-pen {
+    color: green;
+}
+
+.bi-trash {
+    color: red;
+}
+
+.bi-prescription {
+    color: black;
+}
+
+.bi-file-pdf {
+    color: #dc3545;
+}
+
+tbody i {
+    font-size: larger;
+}
+
+.add-search-container {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-container {
+    width: 200px;
+}
+
+.bi-person-fill-add {
+    font-size: 30px;
+    color: white;
+}
+
+.add-container {
+    text-align: center;
+}
+
+.add-container a {
+    background: #008000cf;
+    border-radius: 20px;
+    width: 50px;
+}
+
+.add-container a:hover {
+    background: #00800094;
+}
+
+input#amka:focus {
+    box-shadow: 0 0 0 0.25rem #6c757db3;
+    border: none;
+}

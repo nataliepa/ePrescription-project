@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 
 
-public class PatientDTO {
+public class AddPatientDTO {
     private Long id;
     private String firstName;
     private String lastName;
@@ -27,9 +27,4 @@ public class PatientDTO {
     @Size(min = 5, max = 5)
     @Pattern(regexp = "^[0-9]+$", message = "PC must contain only numbers")
     private String postalCode;
-    /*private String symptoms;
-    private String pharmacy;
-    private String doctorName;
-    private String message;*/
-
 }

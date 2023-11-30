@@ -49,4 +49,9 @@ public class PatientServiceImpl implements PatientService {
     public void deletePatient(Patient patient) {
         patientRepository.delete(patient);
     }
+
+    @Override
+    public List<Patient> findPatientByAmka(String amka) {
+        return patientRepository.findByAmkaContains(amka);
+    }
 }

@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.print.attribute.standard.PresentationDirection;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class PatientController {
@@ -38,14 +40,32 @@ public class PatientController {
         List<Patient> patientList = patientService.findAllPatients();
         
         model.addAttribute("patientList", patientList);
+        model.addAttribute("patientAMKA", "");
                 
         return "patients";
     }
 
+    @GetMapping("/allPatients/{amka}")
+    public String getPatientByAMKA(@PathVariable("amka") String patientAMKA, Model model) {
+
+        List<Patient> patientList = patientService.findPatientByAmka(patientAMKA);
+
+        model.addAttribute("patientList", patientList);
+        model.addAttribute("patientAMKA", patientAMKA);
+
+        /*ModelAndView mav = new ModelAndView("patient");
+        mav.addObject("patient", patient);
+        mav.addObject("notFound", patient == null ? "true" : "false");*/
+
+        return "patientsTable";
+    }
+
+
+
     //prescribe
     @GetMapping("/prescribeDrugs/{id}")
     public ModelAndView prescribeDrugs(@PathVariable("id") String patientId) {
-        ModelAndView mav = new ModelAndView(("patientFormEdit"));
+        ModelAndView mav = new ModelAndView("patientFormEdit");
         Long pId = Long.parseLong(patientId);
 
         Patient formPatient = patientService.findPatientById(pId);
@@ -91,6 +111,7 @@ public class PatientController {
 
         return mav;
     }
+
 
     @PostMapping
     public String createPatient(Patient patient) {
